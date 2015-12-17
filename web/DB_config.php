@@ -12,7 +12,7 @@ define("DEF_CONNECT_PARAM",$param);
 */
 
 //local環境でのpostgresの接続パラメータを取得
-$param = "host=localhost port=5432 dbname=db_test01 user=postgres password=g1o3o5d7"
+$param = "host=localhost port=5432 dbname=db_test01 user=postgres password=g1o3o5d7";
 define("DEF_CONNECT_PARAM", $param);
 
 ?>
