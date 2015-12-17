@@ -2,17 +2,18 @@
 
 require('../vendor/autoload.php');
 
-$url = parse_url(getenv('DATABASE_URL'));
+include('./DB_config.php');
+//$url = parse_url(getenv('DATABASE_URL'));
 
 //リクエストの取得
 $name = $_POST['name'];
 $meigen = $_POST['meigen'];
- 
+
 //DBに接続
 //local用
 //$conn = pg_connect("host=localhost port=5432 dbname=db_test01 user=postgres password=g1o3o5d7");
 //heroku postgres用
-$conn = pg_connect("host=".$url['host']." port=".$url['port']." dbname=".substr($url['path'], 1)." user=".$url['user']." password=".$url['pass']);
+$conn = pg_connect(DEF_CONNECT_PARAM);
 if (!$conn) {
     die('接続できませんでした');
 }
@@ -88,7 +89,7 @@ if($flag == 1){
 	echo ('success');
 }
 
- 
+
 /*
 if (!$result) {
     die('クエリーが失敗しました。'.pg_last_error());

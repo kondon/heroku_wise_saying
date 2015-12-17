@@ -2,7 +2,8 @@
 
 require('../vendor/autoload.php');
 
-$url = parse_url(getenv('DATABASE_URL'));
+include('./DB_config.php');
+//$url = parse_url(getenv('DATABASE_URL'));
 $response = array();
 $id = NULL;
 $name = NULL;
@@ -37,12 +38,12 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
 			echo"d";
 			$response['status'] = "Not Param";
 			response_json();
-			
+
 		}else{
 			echo"e";
 			search_check(1,$name);
 			$search = 2;
-			
+
 		}
 	}else{
 		search_check(0,$id);
@@ -82,8 +83,8 @@ if($_SERVER["REQUEST_METHOD"] != "POST"){
 			response_json();;
 		}
 	}
-	
-	
+
+
 }else{
     // フォームからPOSTによって要求された場合
     $resonse['status'] = "Only Get Method";
@@ -101,7 +102,7 @@ if(!function_exists('getallheaders')) {
 //local用
 //$conn = pg_connect("host=localhost port=5432 dbname=db_test01 user=postgres password=g1o3o5d7");
 //heroku postgres用
-$conn = pg_connect("host=".$url['host']." port=".$url['port']." dbname=".substr($url['path'], 1)." user=".$url['user']." password=".$url['pass']);
+$conn = pg_connect(DEF_CONNECT_PARAM);
 if (!$conn) {
     die('接続できませんでした');
 }
@@ -146,7 +147,7 @@ if(pg_num_rows($result) == 0){
 	    $select_meigen = $rows['meigen'];
 		$response[$i] = array('id' => $select_id,
 								'name' => $select_name,
-								'meigen' => $select_meigen); 
+								'meigen' => $select_meigen);
 	}
 	//var_dump($response);
 	response_json();
@@ -169,30 +170,29 @@ function getallheaders_tmp()
        }
    }
    return $headers;
-} 
+}
 
 function search_check($flag,$var){
 	global $response;
-	
+
 	if($flag == 0){	//idのチェック
 		if($var < 0){
 			$response["status"] = "Invalid Request ID";
 			response_json();
 		}else{
-			
+
 		}
 	}else{			//nameのチェック
-		
+
 	}
 }
 
 function response_json(){
 	global $response;
-	
+
 	$response = json_encode($response, JSON_UNESCAPED_UNICODE);
 	header('Content-type: application/json; charset = UTF-8');
 	echo $response;
 	exit();
 }
 ?>
-
