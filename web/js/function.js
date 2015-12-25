@@ -29,13 +29,13 @@ function insert(){
 				console.log(data);
 
 				if(data == "success"){
-					alert("登録完了!!");
+					swal("Complete Resistration!!", "You clicked the button!", "success");
 					$('#name').val('');
 					$('#meigen').val('');
 				}else if(data == "exist"){
-					alert("その名言は既に登録されています。");
+					swal("Error", "It is already registered", "error");
 				}else{
-					alert("その他エラーです。")
+					swal("Error", "Other error　><。。", "error");
 				}
 			},
 			error:function(){
@@ -61,11 +61,9 @@ function update(){
 				console.log(data);
 
 				if(data == "success"){
-					alert("登録完了!!");
-				}else if(data == "exist"){
-					alert("その名言は既に登録されています。");
+					swal("Complete Resistration!!", "You clicked the button!", "success");
 				}else{
-					alert("その他エラーです。")
+					swal("Error", "Other error　><。。", "error");
 				}
 			},
 			error:function(){
@@ -84,3 +82,7 @@ var select_view = function(){
 	console.log($('#view').attr('class'));
 	console.log('aaa');
 }
+
+document.querySelector('button.success').onclick = function(){
+        swal("Complete Resistration!!", "You clicked the button!", "success");
+    };

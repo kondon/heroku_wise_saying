@@ -9,7 +9,7 @@ include('./DB_config.php');
 $id = $_POST['id'];
 //$meigen = $_POST['meigen'];
 
-$meigen = "私の名前は";
+$meigen = "私の名前はルパン";
 
 //DBに接続
 //local用

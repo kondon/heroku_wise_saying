@@ -82,8 +82,10 @@ if (!$result) {
 <head>
     <meta charset="UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/sweetalert.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -102,6 +104,12 @@ if (!$result) {
 			-->
 		</div>
 	</header>
+<!-- alert テスト-->
+<!--
+  <div class ="container">
+    <button class="success">Try me!</button>
+  </div>
+-->
 	<div class = "container">
 		<div class="panel-group">
 		  <div class="panel panel-default">
