@@ -2,7 +2,9 @@
 
 require('../vendor/autoload.php');
 
-$url = parse_url(getenv('DATABASE_URL'));
+include('./DB_config.php');
+
+//$url = parse_url(getenv('DATABASE_URL'));
 /*
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 
@@ -26,7 +28,7 @@ echo("host=".$url['host']." port=".$url['port']." dbname=".substr($url['path'], 
 //local用
 //$conn = pg_connect("host=localhost port=5432 dbname=db_test01 user=postgres password=g1o3o5d7");
 //heroku postgres用
-$conn = pg_connect("host=".$url['host']." port=".$url['port']." dbname=".substr($url['path'], 1)." user=".$url['user']." password=".$url['pass']);
+$conn = pg_connect(DEF_CONNECT_PARAM);
 if (!$conn) {
     die('接続できませんでした');
 }
@@ -80,8 +82,10 @@ if (!$result) {
 <head>
     <meta charset="UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/sweetalert.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -90,7 +94,7 @@ if (!$result) {
 			<?php echo $name;?>より
 		</h3>
 	</div>
-	
+
 	<header class="jumbotron">
 		<div class="container">
 			<h1><?php echo $meigen;?></h1>
@@ -100,6 +104,12 @@ if (!$result) {
 			-->
 		</div>
 	</header>
+<!-- alert テスト-->
+<!--
+  <div class ="container">
+    <button class="success">Try me!</button>
+  </div>
+-->
 	<div class = "container">
 		<div class="panel-group">
 		  <div class="panel panel-default">
@@ -155,7 +165,7 @@ if (!$result) {
 						</thead>
 						<tbody id="meigen_table">
 							<?php
-      			
+
 			      				$result_view = pg_query(
 								//				"CREATE TABLE kondo_test_auau(id integer,name text,password text);"
 												"SELECT id,name,meigen FROM kondo_local order by 1;"
@@ -163,7 +173,7 @@ if (!$result) {
 								$view_id;
 								$view_name;
 								$view_meigen;
-								
+
 								for ($i = 0 ; $i < pg_num_rows($result_view) ; $i++){
 								    $rows_view = pg_fetch_array($result_view, NULL, PGSQL_ASSOC);
 									$view_id = $rows_view['id'];
@@ -176,7 +186,7 @@ if (!$result) {
 				      				echo '<td><button value="更新" onClick="update()">　<span class="glyphicon glyphicon-user"></span>　</button></td>';
 				      				echo "</tr>";
 								}
-			      				
+
 			      			?>
 						</tbody>
 					</table>
