@@ -83,6 +83,7 @@ if (!$result) {
     <meta charset="UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/sweetalert.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/sweetalert.min.js" type="text/javascript"></script>
@@ -183,8 +184,9 @@ if (!$result) {
 									echo "<td>$view_id</td>";
 				      				echo "<td>$view_name</td>";
 				      				echo "<td>$view_meigen</td>";
-				      				echo '<td><button value="更新" onClick="update()">　<span class="glyphicon glyphicon-user"></span>　</button></td>';
-				      				echo "</tr>";
+				      				//echo '<td><button value="更新" onClick="update()">　<span class="glyphicon glyphicon-user"></span>　</button></td>';
+                      echo '<td><button value="更新" class="update">　<span class="glyphicon glyphicon-user"></span>　</button></td>';
+                      echo "</tr>";
 								}
 
 			      			?>
@@ -206,5 +208,11 @@ if (!$result) {
 	      </div>
 		</div>
 	</div>
+  <div id = "overlay">
+    <p id="update_text">ｲｪｰｰｲみてるぅ✌(´ʘ‿ʘ｀)✌</p>
+    <button class="btn btn-primary btn-lg" id="" onClick="update()">GoGo</button>
+    <button class="btn btn-danger btn-lg" id="update_close">Close</button>
+  </div>
+
 	<script src="js/function.js" type="text/javascript"></script>
 </body>
