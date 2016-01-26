@@ -34,8 +34,8 @@ echo("host=".$url['host']." port=".$url['port']." dbname=".substr($url['path'], 
 //heroku postgres用
 $conn = pg_connect(DEF_CONNECT_PARAM);
 if (!$conn) {
-    die('接続できませんでした');
     fwrite( $stdout, "Not DB Connect\n" );
+    die('接続できませんでした');
 }
 
 //ランダムに出力するための、テーブルサイズ取得
