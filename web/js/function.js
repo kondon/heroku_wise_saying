@@ -83,6 +83,10 @@ var select_view = function(){
 	console.log('aaa');
 }
 
-document.querySelector('button.success').onclick = function(){
-        swal("Complete Resistration!!", "You clicked the button!", "success");
-    };
+$(".update").on("click", function() {
+  	$("#overlay").fadeIn();　/*ふわっと表示*/
+  });
+
+$("#update_close").on("click", function() {
+   $("#overlay").fadeOut();　/*ふわっと消える*/
+ });
