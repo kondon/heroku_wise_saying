@@ -4,6 +4,10 @@ require('../vendor/autoload.php');
 
 include('./DB_config.php');
 
+$stdout= fopen( 'php://stdout', 'w' );
+$stderr= fopen('php://stderr','w');
+
+fwrite( $stdout, "index.php access next DB-connect\n" );
 //$url = parse_url(getenv('DATABASE_URL'));
 /*
 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
@@ -31,6 +35,7 @@ echo("host=".$url['host']." port=".$url['port']." dbname=".substr($url['path'], 
 $conn = pg_connect(DEF_CONNECT_PARAM);
 if (!$conn) {
     die('接続できませんでした');
+    fwrite( $stdout, "Not DB Connect\n" );
 }
 
 //ランダムに出力するための、テーブルサイズ取得
