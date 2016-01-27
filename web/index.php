@@ -217,25 +217,6 @@ if (!$result) {
 		</divd
 	</div>
   <div id = "overlay">
-    <div class="container" id="update_form">
-      <table class = "table table-bordered">
-        <thead>
-          <tr>
-            <th class=" col-xs-4 col-sm-4 col-md-4 col-lg-4" style="color:#fff;" >名前</th>
-            <td class=" col-xs-8 col-sm-8 col-md-8 col-lg-8"><input type="text" id="up_name" style = "width: 100%" value="" ></td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class=" col-xs-4 col-sm-4 col-md-4 col-lg-4">名言</th>
-            <td class=" col-xs-8 col-sm-8 col-md-8 col-lg-8"><input type="text" id="up_meigen" style = "width: 100%" value="" ></td>
-                <span class="glyphicon glyphicon-ok"></span>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
     <button class="btn btn-primary btn-lg" id="" onClick="update()">GoGo</button>
     <button class="btn btn-danger btn-lg" id="update_close">Close</button>
   </div>
