@@ -218,16 +218,23 @@ if (!$result) {
 	</div>
   <div id = "overlay">
     <div class="container" id="update_form">
+      <p style="color:#FF0000;">idは必ずや入力してください</p>
       <table class = "table table-bordered">
         <thead>
+          <tr>
+            <th class=" col-xs-4 col-sm-4col-md-4 col-lg-4" style="color:#FF9999;" >id</th>
+            <td class=" col-xs-8 col-sm-8 col-md-8 col-lg-8"><input type="text" id="up_id" style = "width: 100%" value="" ></td>
+          </tr>
+        </thead>
+        <tbody>
+          <!--
           <tr>
             <th class=" col-xs-4 col-sm-4 col-md-4 col-lg-4" style="color:#fff;" >名前</th>
             <td class=" col-xs-8 col-sm-8 col-md-8 col-lg-8"><input type="text" id="up_name" style = "width: 100%" value="" ></td>
           </tr>
-        </thead>
-        <tbody>
+        -->
           <tr>
-            <th class=" col-xs-4 col-sm-4 col-md-4 col-lg-4">名言</th>
+            <th class=" col-xs-4 col-sm-4 col-md-4 col-lg-4" style="color:#fff;">名言</th>
             <td class=" col-xs-8 col-sm-8 col-md-8 col-lg-8"><input type="text" id="up_meigen" style = "width: 100%" value="" ></td>
                 <span class="glyphicon glyphicon-ok"></span>
               </button>
