@@ -7,9 +7,9 @@ include('./DB_config.php');
 
 //リクエストの取得
 $id = $_POST['id'];
-//$meigen = $_POST['meigen'];
+$meigen = $_POST['meigen'];
 
-$meigen = "私の名前はルパンthe Ⅲ";
+//$meigen = "私の名前はルパンthe Ⅲどぇす";
 
 //DBに接続
 //local用

@@ -47,13 +47,18 @@ function insert(){
 
 function update(){
 
-	id = 101;
+	if($('#up_id').val() == ""){
+		swal("Error", "Input ID", "error");
+		console.log(up_id);
+		return;
+	}
 
 	$.ajax({
 			//url:"./php/sli_get_image_circle.php",		//spiral用
 			url :"./updates.php",
 			type:"POST",
-			data:{"id": id},
+			data:{"id": $('#up_id').val(),
+					"meigen":$('#up_meigen').val()},
 			async:true,
 			success:function(data){
 				//$('#sli_gazou').attr('src','./image/'+Date_time+'/'+ImageID+'.jpg');
@@ -62,6 +67,8 @@ function update(){
 
 				if(data == "success"){
 					swal("Complete Resistration!!", "You clicked the button!", "success");
+					$('#up_id').val('');
+					$('#up_meigen').val('');
 				}else{
 					swal("Error", "Other error　><。。", "error");
 				}
