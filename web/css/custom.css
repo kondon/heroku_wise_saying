@@ -9,10 +9,9 @@
         background: rgba(0,0,0,0.7);
     }
 
-    #update_text{
-        font-size: 40px;
-        color: #eee;
-        padding-top: 400px;
+    #update_form{
+        font-size: 20px;
+        padding-top: 200px;
         vertical-align: middle;
         font-weight: bold;
     }
